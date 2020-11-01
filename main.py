@@ -1,4 +1,5 @@
 import requests 
+import json
 from bs4 import BeautifulSoup 
 headers=["crop","quantity","price"]
 URL = "https://rates.goldenchennai.com/vegetable-price/tamil-nadu-vegetable-price-today/#cities"
@@ -12,4 +13,5 @@ for row in table.find_all('tr'):
        t_row[table_headers]=table_data.text.replace('n',"").strip()
     
     data.append(t_row)
-print(data)
+json_data=json.dumps(data)
+print(json_data)
